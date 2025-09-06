@@ -1,8 +1,13 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
+const PORT = 5000;
 
-app.get("/", (req, res) => {
-  res.send("🚀 Node is working on Windows!");
+app.use(cors());
+
+app.get("/hello", (req, res) => {
+  res.json({ msg: "Hello from the backend 👋" });
 });
 
-app.listen(3000, () => console.log("Server running at http://localhost:3000"));
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+
